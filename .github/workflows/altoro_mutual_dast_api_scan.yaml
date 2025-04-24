@@ -25,8 +25,8 @@ jobs:
      # The type of runner that the job will run on 
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Create Output folder
         run: mkdir ${{ github.workspace }}/output_fold
       - name: Change dir owner
@@ -55,7 +55,7 @@ jobs:
       - name: Reclaim output directory
         if: always()
         run: sudo chown -R 1001:1001 ${{ github.workspace }}/output_fold
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         name: Upload Logs
         with:
